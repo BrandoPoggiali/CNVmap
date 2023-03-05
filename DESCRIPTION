@@ -1,0 +1,26 @@
+Package: CNVmap
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: What the package does (one paragraph).
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+Depends: 
+    R (>= 2.10),
+    ggplot2 (>= 3.4.0),
+    BiocGenerics,
+    IRanges (>= 2.30.1),
+    GenomicRanges (>= 1.48.0),
+    plyranges,
+    data.table,
+    GenomeInfoDb
+LazyData: true
