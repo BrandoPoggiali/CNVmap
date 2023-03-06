@@ -37,7 +37,17 @@ Plot all genome chromosomes
 plot_all_chr(cnr_data, cns_data, only_autosomal = TRUE, chr_text_size=5)
 ```
 
-![](img/All_genome_CNVs.png)
+![](img/All_autosomes.png)
+
+
+You can also plot the sex chromosomes, remove chromosome text and use a different color for the log2 average value. 
+```r
+plot_all_chrs(cnr_data, cns_data, chr_text_size = NULL, log2_line_col = "yellow")
+```
+![](img/All_autosomes.png)
+
+
+
 
 
 ## Table of contents
