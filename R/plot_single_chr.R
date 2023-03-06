@@ -17,10 +17,11 @@
 #' @param log2_line_col Color for the average log2 line. Default: "deepskyblue"
 #' @param log2_threshold Numeric value to create a threshold line in the plot. Defaul: NULL 
 #' @param log2_threshold_color Color for the log_threshold line. Default: "red"
+#' @param gene_text_size Text size for genes annotation in the plot. Default = 2.80
 #' @return A ggplot graph. 
 #' @export
 plot_single_chr <- function(cnr_data, cns_data, chr = "chr9", chr_picture = FALSE, genes = NULL, log2_line_col = "deepskyblue",
-                            log2_threshold = NULL, log2_threshold_color = "red") {
+                            log2_threshold = NULL, log2_threshold_color = "red", gene_text_size = 2.80) {
   
   check_cnvkit_data(cnr_data, cns_data)
   
@@ -126,11 +127,11 @@ plot_single_chr <- function(cnr_data, cns_data, chr = "chr9", chr_picture = FALS
 
       if (gene_end - gene_start <= 0.150){
       graph <- graph + geom_vline(xintercept = (gene_start + gene_end) / 2 , color="#f9a4a4", size=0.25 + gene_end - gene_start) +
-               annotate("text", x = mean(gene_start, gene_end), y=-y_value, label = gene_name, col="red", size=2.80) +
+               annotate("text", x = mean(gene_start, gene_end), y=-y_value, label = gene_name, col="red", size = gene_text_size) +
         ylim(-5, 2)
       } else {
        graph <- graph + geom_rect(aes(xmin = !!gene_start, xmax = !!gene_end, ymin = -Inf , ymax = Inf), fill="#f9a4a4") +
-         annotate("text", x = mean(gene_start, gene_end), y = -y_value,label = gene_name, col="red", size=2.80) + theme(legend.position = "none") +
+         annotate("text", x = mean(gene_start, gene_end), y = -y_value,label = gene_name, col="red", size = gene_text_size) + theme(legend.position = "none") +
          ylim(-5, 2)
     }}}}
     

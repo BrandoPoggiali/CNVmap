@@ -12,7 +12,8 @@ plot_single_chr(
   genes = NULL,
   log2_line_col = "deepskyblue",
   log2_threshold = NULL,
-  log2_threshold_color = "red"
+  log2_threshold_color = "red",
+  gene_text_size = 2.8
 )
 }
 \arguments{
@@ -34,6 +35,8 @@ plot_single_chr(
 \item{log2_threshold}{Numeric value to create a threshold line in the plot. Defaul: NULL}
 
 \item{log2_threshold_color}{Color for the log_threshold line. Default: "red"}
+
+\item{gene_text_size}{Text size for genes annotation in the plot. Default = 2.80}
 }
 \value{
 A ggplot graph.

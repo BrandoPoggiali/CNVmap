@@ -57,10 +57,17 @@ plot_single_chr(cnr_data, cns_data, chr = "chr6")
 You can give a list of genes which can be plotted in the graph, if located in that chromosome!
 
 ```r
-genes_list <- c("BRCA2","FLT1","TP53", "MIPEP", "NUPL1", "POMP", "PCCA", "XPO4", "SOX21", "ARG1", "MYO6", "ELOVL5")
-single_plot_chr(cnr_data, cns_data, chr = "chr6", genes = genes_list)
+genes_list <- c("BRCA2","FLT1","NOL7", "TP53", "MYC", "NUPL1", "POMP", "HLA-A", "SOX21", "ARG1", "MYO6", "ELOVL5")
+plot_single_chr(cnr_data, cns_data, chr = "chr6", genes = genes_list, gene_text_size = 3.3)
 ```
 ![](img/Chromosome_6_genes.png)
+
+You easily add a chromosome icon displaying duplicated and deleted regions.
+
+```r
+plot_single_chr(cnr_data, cns_data, chr = "chr6", genes = genes_list, gene_text_size = 3.3, chr_picture = TRUE)
+```
+![](img/Chromosome_6_genes_icon.png)
 
 
 #### Single gene
