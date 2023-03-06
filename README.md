@@ -3,8 +3,9 @@
 
 
 ## Installation
-```
-install_github("BrandoPoggiali/CNVmap")
+You will need to install it via _GitHub_ using the `devtools` package.
+```r
+devtools::install_github("BrandoPoggiali/CNVmap")
 ```
 ## How to use
 
