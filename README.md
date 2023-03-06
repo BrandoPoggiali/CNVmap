@@ -27,10 +27,17 @@ Upload .cnr and cns.file in R using the data.table library.
 ```r
 library(data.table)
 
-devtools::update("CNVmap")
+cnr_data <- fread("path/name.cnr", sep="\t")
+cns_data <- fread("path/name.cns", sep="\t")
 ```
 
+Plot all genome chromosomes
 
+```r
+plot_all_chr(cnr_data, cns_data, only_autosomal = TRUE, chr_text_size=5)
+```
+
+![](img/All_genome_CNVs.png)
 
 
 ## Table of contents
