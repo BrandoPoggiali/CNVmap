@@ -18,7 +18,6 @@
 #' @param log2_threshold_color Color for the log_threshold line. Default: "red"
 #' @return A matrix of the infile
 #' @export
-gene="SGCEgfhf"
 plot_single_gene <- function(cnr_data, cns_data, gene = "TP53", all.transcripts = FALSE, gene_structure = TRUE,
                              regulatory.elements = FALSE, log2_line_col = "deepskyblue", log2_threshold = NULL,
                              log2_threshold_color = "red"){

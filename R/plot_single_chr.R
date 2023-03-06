@@ -17,7 +17,8 @@
 #' @param log2_line_col Color for the average log2 line. Default: "deepskyblue"
 #' @return A ggplot graph. 
 #' @export
-plot_single_chr <- function(cnr_data, cns_data, chr = "chr9", chr_picture = FALSE, genes = NULL, log2_line_col = "deepskyblue") {
+plot_single_chr <- function(cnr_data, cns_data, chr = "chr9", chr_picture = FALSE, genes = NULL, log2_line_col = "deepskyblue",
+                            log2_threshold = NULL, log2_threshold_color = "red") {
   
   check_cnvkit_data(cnr_data, cns_data)
   
@@ -33,6 +34,17 @@ plot_single_chr <- function(cnr_data, cns_data, chr = "chr9", chr_picture = FALS
     } 
   }
   
+  if (!is.null(log2_threshold)){
+    if (!is.numeric(log2_threshold)) {
+      stop("log2_threshold parameter is not a number.", call. = FALSE)
+    }
+  }
+  
+  if (log2_threshold_color != "red" & length(log2_threshold_color) == 1) {
+    if (!all(.areColors(log2_line_col))) {
+      stop(paste("log2_line_col parameter contains wrong color code:", log2_threshold_color), call. = FALSE)
+    } 
+  }
   
   cnr_chr <- cnr_data[cnr_data$chromosome == chr,]
   cns_chr <- cns_data[cns_data$chromosome == chr,]
@@ -54,6 +66,12 @@ plot_single_chr <- function(cnr_data, cns_data, chr = "chr9", chr_picture = FALS
     theme(plot.title = element_text(hjust = 0.5, size = 22), axis.text.x = element_text(size = 12), axis.text.y = element_text(size = 11), axis.title = element_text(size = 15), legend.position = "none")
 
 
+  if (!is.null(log2_threshold)) {
+    graph <- graph + geom_hline(yintercept = log2_threshold, linewidth = 0.35, color = "red", linetype="dashed") +
+      scale_y_continuous(limits = c(-5, 2), breaks = c(2, 0, -2, -4, log2_threshold), minor_breaks = c(1, -1, -3, -5)) 
+  }
+  
+  
   if (!is.null(genes)) {
     target_gene_info <- subset(all_genes[seqnames(all_genes) == gsub("chr", "", chr)], symbol %in% genes)
     
@@ -170,7 +188,7 @@ if (chr_picture){
   return(ggpubr::ggarrange(chr_rect, graph, heights = c(0.14, 0.86), ncol=1, nrow=2, align="v"))
 } else {
   graph <- graph + ggtitle(paste("Chromosome", stringr::str_remove(chr, "chr")))
-  return(graph )
+  return(graph)
 }}
 
 
