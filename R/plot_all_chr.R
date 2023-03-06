@@ -9,10 +9,10 @@
 #' If you don't want any text set chr_text_size = NULL
 #' @param chr_colors A vector of colors. Colors will be used om the plot  base on their order in the vector. I you plot only autosomes you must input 22 colors,
 #' if you plot also sex chromosomes you must input 24 colors. Default: NULL
-#' @param log2_line_col Color for the average log2 line. Default: "deepskyblue"
+#' @param log2_line_col Color for the average log2 line. Default: "red"
 #' @return A ggplot graph.
 #' @export
-plot_all_chr <- function(cnr_data, cns_data, only_autosomal = FALSE, chr_text_size = 4, chr_colors = NULL, log2_line_col = "deepskyblue"){
+plot_all_chr <- function(cnr_data, cns_data, only_autosomal = FALSE, chr_text_size = 4, chr_colors = NULL, log2_line_col = "red"){
   
   check_cnvkit_data(cnr_data, cns_data)
                     
@@ -135,13 +135,14 @@ plot_all_chr <- function(cnr_data, cns_data, only_autosomal = FALSE, chr_text_si
     theme(axis.text.x = element_blank(), axis.ticks.x=element_blank(), axis.title.x = element_text(face="bold",size=15) ,axis.title.y = element_text(face="bold",size=12.5), axis.text.y = element_text(size = 11))
   
   setTxtProgressBar(pb, 27)
+  options(warn=-1)
+  print(graph)
+  options(warn=0)
+  Sys.sleep(10)
   setTxtProgressBar(pb, 28)
   close(pb)
-  return(graph)
-  
   
   }
-
 
 
 #Test if color codes are valid

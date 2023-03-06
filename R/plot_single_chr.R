@@ -1,10 +1,10 @@
 #' Plot single chromosome log2 coverages
 #'
-#'This function create a plot displaying log2 values in a specific chromosome. You can give 
-#'to this function one or more genes in form of a vector and the function will plot them
+#' This function create a plot displaying log2 values in a specific chromosome. You can give 
+#' to this function one or more genes in form of a vector and the function will plot them
 #' base on their position and width in plot.This function#'can also plot a chromosome 
 #' icon which is colored base on log2 values. It can have a color gradient which goes from red,
-#'  when there is a negative log2 value,to green when there is a positive log2 value.   
+#' when there is a negative log2 value,to green when there is a positive log2 value.   
 #'
 #' @param cnr_data Dataframe containing .cnr file originated from the tool CNVkit.
 #' @param cns_data Dataframe containing .cns file originated from the tool CNVkit.
@@ -15,6 +15,8 @@
 #' @param chr_picture  Plot a cromosome icon colored base on log2 values. Default: FALSE
 #' @param genes  A string with a gene or a vector containing gene names (HGNC ID). Default: NULL 
 #' @param log2_line_col Color for the average log2 line. Default: "deepskyblue"
+#' @param log2_threshold Numeric value to create a threshold line in the plot. Defaul: NULL 
+#' @param log2_threshold_color Color for the log_threshold line. Default: "red"
 #' @return A ggplot graph. 
 #' @export
 plot_single_chr <- function(cnr_data, cns_data, chr = "chr9", chr_picture = FALSE, genes = NULL, log2_line_col = "deepskyblue",

@@ -1,26 +1,21 @@
 Package: CNVmap
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Title: An R-package to visualize Copy Number Variations (CNVs)
+Version: 1.0.0
+Authors@R: person("Brando", "Poggiali", email= "poggialibrando1995@gmail.com", role = c("aut", "cre"))
+Description: 'CNVmap' is a tool for visualizing Copy Number Varitions (CNVs) at genome, chromosome and gene levels.
+             It can be use to inspect CNVs and create pubblication-quality figures. The inputs of this tool are .cns and .cnr file
+             formats obtained by the tool CNVkit (https://cnvkit.readthedocs.io/en/stable/).
+License: MIT LICENSE
 Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-Suggests: 
-    knitr,
-    rmarkdown
-VignetteBuilder: knitr
-Depends: 
+Depends:
     R (>= 2.10),
-    ggplot2 (>= 3.4.0),
     BiocGenerics,
     IRanges (>= 2.30.1),
     GenomicRanges (>= 1.48.0),
-    plyranges,
-    data.table,
     GenomeInfoDb
 LazyData: true
+Imports: 
+    data.table,
+    ggplot2,
+    plyranges

@@ -11,6 +11,9 @@ check_cnvkit_data(cnr_data, cns_data)
 
 \item{cns_data}{Dataframe containing .cns file originated from the tool CNVkit.}
 }
+\value{
+Nothing
+}
 \description{
 This function check if .cnr and .cns files have the correct structure for the plots.
 }

@@ -2,7 +2,7 @@
 #'
 #' @param cnr_data Dataframe containing .cnr file originated from the tool CNVkit.
 #' @param cns_data Dataframe containing .cns file originated from the tool CNVkit.
-#' @return 
+#' @return Nothing
 #' @export
 check_cnvkit_data <- function(cnr_data, cns_data) {
   if (!is.data.frame(cnr_data)){
