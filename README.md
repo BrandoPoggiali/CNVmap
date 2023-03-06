@@ -1,10 +1,10 @@
 # CNVmap
- CNVmap is a plotting tool for CNV variants.  
+ CNVmap is a plotting tool for CNV variants. The inputs of this tools are cns and cnr file formats obtained from tool CNVkit. CNVmap produces publication-quality figures.  
 
 
 ## Installation
 ```
-install_github("DeveloperName/PackageName")
+install_github("BrandoPoggiali/CNVmap")
 ```
 ## How to use
 
