@@ -30,7 +30,7 @@ library(data.table)
 cnr_data <- fread("path/name.cnr", sep="\t")
 cns_data <- fread("path/name.cns", sep="\t")
 ```
-##### All chromosomes
+#### All chromosomes
 Plot all chromosomes except sex chromosomes. The function is time-intensive. It could take some minutes.
 
 ```r
@@ -45,7 +45,7 @@ plot_all_chrs(cnr_data, cns_data, chr_text_size = NULL, log2_line_col = "yellow"
 ```
 ![](img/All_chromosomes.png)
 
-##### Single chromosomes
+#### Single chromosomes
 It is possible to ispect CNVs at chromosomes level.
 
 ```r
@@ -54,7 +54,7 @@ plot_single_chr(cnr_data, cns_data, chr = "chr6")
 ![](img/Chromosome_6.png)
 
 
-##### Single gene
+#### Single gene
 
 
 
