@@ -39,6 +39,7 @@ plot_all_chr(cnr_data, cns_data, only_autosomal = TRUE, chr_text_size=5)
 
 ![](img/All_autosomes.png)
 
+
 You can also: plot all chromosomes, remove chromosome text and use a different color for the log2 average value. 
 ```r
 plot_all_chrs(cnr_data, cns_data, chr_text_size = NULL, log2_line_col = "yellow")
@@ -46,12 +47,20 @@ plot_all_chrs(cnr_data, cns_data, chr_text_size = NULL, log2_line_col = "yellow"
 ![](img/All_chromosomes.png)
 
 #### Single chromosomes
-It is possible to ispect CNVs at chromosomes level.
+It is possible to explore CNVs at chromosomes level.
 
 ```r
 plot_single_chr(cnr_data, cns_data, chr = "chr6")
 ```
 ![](img/Chromosome_6.png)
+
+You can give a list of genes which can be plotted in the graph, if located in that chromosome!
+
+```r
+genes_list <- c("BRCA2","FLT1","TP53", "MIPEP", "NUPL1", "POMP", "PCCA", "XPO4", "SOX21", "ARG1", "MYO6", "ELOVL5")
+single_plot_chr(cnr_data, cns_data, chr = "chr6", genes = genes_list)
+```
+![](img/Chromosome_6_genes.png)
 
 
 #### Single gene
