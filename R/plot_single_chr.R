@@ -57,7 +57,7 @@ plot_single_chr <- function(cnr_data, cns_data, chr = "chr9", chr_picture = FALS
 
   graph <- ggplot() +
     geom_point(data = cnr_chr, aes(x = (start + plot_point) / 1000000, y = log2, pch = "."), color = "#616a6b", size = 0.8) +
-    theme(panel.background = element_rect(fill = "white", colour = "grey50"), panel.grid.minor.y = element_line(linewidth = 0.1, colour = "grey50", linetype = "dashed"),
+    theme(panel.background = element_rect(fill = "white", colour = "black"), panel.grid.minor.y = element_line(linewidth = 0.1, colour = "grey50", linetype = "dashed"),
           panel.grid.major.y = element_line(linewidth = 0.1, colour = "grey50", linetype = "dashed")) +
     #ggtitle(paste("Chromosome", stringr::str_remove(chr, "chr"))) + 
     xlab("Position (Mb)") + ylim(-3, 3) +
