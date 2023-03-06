@@ -3,7 +3,14 @@
 
 
 ## Installation
-You will need to install it via _GitHub_ using the `devtools` package.
+
+You will need to install it via _GitHub_ using the `devtools` package. To install `devtools`:
+```r
+install.packages("devtools")
+library(devtools)
+```
+
+To install CNVmap and its dependencies:
 ```r
 devtools::install_github("BrandoPoggiali/CNVmap")
 ```
