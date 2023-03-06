@@ -1,9 +1,11 @@
 # CNVmap
-
+ CNVmap is a plotting tool for CNV variants.  
 
 
 ## Installation
-
+```
+install_github("DeveloperName/PackageName")
+```
 ## How to use
 
 ## Table of contents
