@@ -12,7 +12,7 @@
 #' @param log2_line_col Color for the average log2 line. Default: "red"
 #' @return A ggplot graph.
 #' @export
-plot_all_chr <- function(cnr_data, cns_data, only_autosomal = FALSE, chr_text_size = 4, chr_colors = NULL, log2_line_col = "red"){
+plot_all_chrs <- function(cnr_data, cns_data, only_autosomal = FALSE, chr_text_size = 4, chr_colors = NULL, log2_line_col = "red"){
   
   check_cnvkit_data(cnr_data, cns_data)
                     
@@ -119,9 +119,10 @@ plot_all_chr <- function(cnr_data, cns_data, only_autosomal = FALSE, chr_text_si
     sep_chrom <- head(sep_chrom,-2)
   } 
   setTxtProgressBar(pb, n_loading_bar+2)
-    graph <- ggplot() +
+    
+  graph <- ggplot() +
     geom_point(data=cnr_data, aes(x=(start+plot_point)/1000000, y=log2, color=chromosome, pch="."), size = 0.8) +
-    theme(legend.position="none", panel.background = element_rect(fill = "white", colour = "#d2d3d3"), #panel.grid.minor.y = element_line(size=0.1, colour="#d2d3d3", linetype="dashed"),
+    theme(legend.position="none", panel.background = element_rect(fill = "white", colour = "black"), #panel.grid.minor.y = element_line(size=0.1, colour="#d2d3d3", linetype="dashed"),
           panel.grid.major.y = element_line(size=0.1, colour = "grey50",linetype="dashed")) +
     scale_color_manual(values = chr_colors) +
     ylim(-2.5,2.5) + xlab("Chromosomes") +
