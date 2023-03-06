@@ -125,7 +125,7 @@ plot_all_chrs <- function(cnr_data, cns_data, only_autosomal = FALSE, chr_text_s
     theme(legend.position="none", panel.background = element_rect(fill = "white", colour = "black"), #panel.grid.minor.y = element_line(size=0.1, colour="#d2d3d3", linetype="dashed"),
           panel.grid.major.y = element_line(size=0.1, colour = "grey50",linetype="dashed")) +
     scale_color_manual(values = chr_colors) +
-    ylim(-2.5,2.5) + xlab("Chromosomes") +
+    ylim(-2.5, 2.5) + xlab("Chromosomes") +
     geom_hline(yintercept = 0, size=1.08 ) +  #set black line at y=0
     scale_x_continuous( expand = c(0.002, 0.0008)) +
       # geom_rect(data=as.data.frame(centromere_positions), inherit.aes=FALSE, aes(xmin=START/1000000, xmax=END/1000000, ymin=-Inf,ymax=Inf ), color="transparent", fill="orange", alpha=0.27) + #Plot centromere position

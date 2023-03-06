@@ -60,19 +60,19 @@ plot_single_chr <- function(cnr_data, cns_data, chr = "chr9", chr_picture = FALS
     theme(panel.background = element_rect(fill = "white", colour = "grey50"), panel.grid.minor.y = element_line(linewidth = 0.1, colour = "grey50", linetype = "dashed"),
           panel.grid.major.y = element_line(linewidth = 0.1, colour = "grey50", linetype = "dashed")) +
     #ggtitle(paste("Chromosome", stringr::str_remove(chr, "chr"))) + 
-    xlab("Position (Mb)") + ylim(-5, 2) +
+    xlab("Position (Mb)") + ylim(-3, 3) +
     geom_hline(yintercept = 0, linewidth=1.08 ) +  #set black line at y=0
     scale_x_continuous(expand = c(0, 0)) +  #set side layout graph
     geom_rect(data = as.data.frame(centromere_position_chr), inherit.aes = FALSE, aes(xmin = START / 1000000, xmax = END / 1000000, ymin = -Inf, ymax = Inf), color = "transparent", fill = "orange", alpha = 0.27) +  #Plot centromere position
     geom_segment(data = cns_chr, aes(x = start / 1000000, xend = end / 1000000, y = log2, yend = log2), lineend = "round", color = log2_line_col, size = 1.45) +
     theme(plot.title = element_text(hjust = 0.5, size = 22), axis.text.x = element_text(size = 12), axis.text.y = element_text(size = 11), axis.title = element_text(size = 15), legend.position = "none")
 
-
+  options(warn = -1)
   if (!is.null(log2_threshold)) {
     graph <- graph + geom_hline(yintercept = log2_threshold, linewidth = 0.35, color = "red", linetype="dashed") +
       scale_y_continuous(limits = c(-5, 2), breaks = c(2, 0, -2, -4, log2_threshold), minor_breaks = c(1, -1, -3, -5)) 
   }
-  
+  options(warn = 0)
   
   if (!is.null(genes)) {
     target_gene_info <- subset(all_genes[seqnames(all_genes) == gsub("chr", "", chr)], symbol %in% genes)
@@ -126,10 +126,12 @@ plot_single_chr <- function(cnr_data, cns_data, chr = "chr9", chr_picture = FALS
 
       if (gene_end - gene_start <= 0.150){
       graph <- graph + geom_vline(xintercept = (gene_start + gene_end) / 2 , color="#f9a4a4", size=0.25 + gene_end - gene_start) +
-               annotate("text", x = mean(gene_start, gene_end), y=-y_value, label = gene_name, col="red", size=2.80)
+               annotate("text", x = mean(gene_start, gene_end), y=-y_value, label = gene_name, col="red", size=2.80) +
+        ylim(-5, 2)
       } else {
        graph <- graph + geom_rect(aes(xmin = !!gene_start, xmax = !!gene_end, ymin = -Inf , ymax = Inf), fill="#f9a4a4") +
-         annotate("text", x = mean(gene_start, gene_end), y = -y_value,label = gene_name, col="red", size=2.80) + theme(legend.position = "none")
+         annotate("text", x = mean(gene_start, gene_end), y = -y_value,label = gene_name, col="red", size=2.80) + theme(legend.position = "none") +
+         ylim(-5, 2)
     }}}}
     
 
