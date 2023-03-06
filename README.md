@@ -44,7 +44,7 @@ You can also plot the sex chromosomes, remove chromosome text and use a differen
 ```r
 plot_all_chrs(cnr_data, cns_data, chr_text_size = NULL, log2_line_col = "yellow")
 ```
-![](img/All_autosomes.png)
+![](img/All_chromosomes.png)
 
 
 
