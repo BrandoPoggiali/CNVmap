@@ -1,5 +1,5 @@
 # CNVmap
- CNVmap is tool for visualizing Copy Number Varitions (CNVs) at genome, chromsome and gene levels. The inputs of this tool are .cns and .cnr file formats obtained by the tool CNVkit (https://cnvkit.readthedocs.io/en/stable/).
+ CNVmap is a tool for visualizing Copy Number Varitions (CNVs) at genome, chromosome and gene levels. The inputs of this tool are .cns and .cnr file formats obtained by the tool CNVkit (https://cnvkit.readthedocs.io/en/stable/).
 
 
 ## Installation
@@ -71,7 +71,17 @@ plot_single_chr(cnr_data, cns_data, chr = "chr6", genes = genes_list, gene_text_
 
 
 #### Single gene
+It is possible to explore CNVs at gene level. You have to specify the name of a gene with HGNC ID. 
+In this case we look for TP53 gene, the function automatically plot the canonical transcript.
 
+```r
+plot_single_gene(cnr_data, cns_data, gene = "TP53")
+```
+![](img/TP53.png)
+
+
+It is possible to plot a detailed annotation in the plot. In this case the function plot both all transcripts of the gene and the regulatory elements present in that region. 
+The color of the regulatory elements follow the in UCSC browser. (red for promoter, orange for distal enhancer, yellow for proximal enhancer, pink for DNase-H3K4me3, and blue for CTCF-only) 
 
 
 

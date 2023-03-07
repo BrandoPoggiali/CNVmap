@@ -13,9 +13,9 @@ Depends:
     BiocGenerics,
     IRanges (>= 2.30.1),
     GenomicRanges (>= 1.48.0),
-    GenomeInfoDb
+    GenomeInfoDb,
+    ggplot2
 LazyData: true
 Imports: 
     data.table,
-    ggplot2,
     plyranges

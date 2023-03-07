@@ -18,6 +18,8 @@
 #' @param log2_threshold_color Color for the log_threshold line. Default: "red"
 #' @return A matrix of the infile
 #' @export
+gene = "ARHGEF10"
+gene = "PTPRD"
 plot_single_gene <- function(cnr_data, cns_data, gene = "TP53", all.transcripts = FALSE, gene_structure = TRUE,
                              regulatory.elements = FALSE, log2_line_col = "deepskyblue", log2_threshold = NULL,
                              log2_threshold_color = "red"){
@@ -50,11 +52,11 @@ plot_single_gene <- function(cnr_data, cns_data, gene = "TP53", all.transcripts 
     } 
   }
   
-  cnn_trs_id <- all_genes[all_genes$symbol == gene ]$canonical_transcript
+  cnn_trs_id <- all_genes[all_genes$symbol == gene][1]$canonical_transcript
   trs_start <- start(all_transcripts[names(all_transcripts) == cnn_trs_id])
   trs_end <- end(all_transcripts[names(all_transcripts) == cnn_trs_id])
-  gene_chr <- as.vector(seqnames(all_genes[all_genes$symbol == gene]))
-  gene_strand <- as.vector(strand(all_genes[all_genes$symbol == gene]))
+  gene_chr <- as.vector(seqnames(all_genes[all_genes$symbol == gene][1]))
+  gene_strand <- as.vector(strand(all_genes[all_genes$symbol == gene])[1])
   gene_exons <- as.data.frame(all_exons[all_exons$tx_id == cnn_trs_id])
   
   #Filter dataset (I should transform cns and cnr file in Granges object and make the filtering using Granges FindOverlap)
@@ -86,17 +88,19 @@ plot_single_gene <- function(cnr_data, cns_data, gene = "TP53", all.transcripts 
                                     end = gene_exons$end)
     }  
     
-    
-  graph <- ggplot() +
-    theme(panel.background = element_rect(fill = "white", colour = "grey50"), panel.grid.minor.y = element_line(linewidth = 0.2, colour = "#aaaaaa", linetype = "dashed"),
+    graph_start <- ifelse(cnr_gene$start[1] < GenomicRanges::start(trs_cnn_gr), cnr_gene$start[1], GenomicRanges::start(trs_cnn_gr))
+    graph_end <- ifelse(cnr_gene$end[nrow(cnr_gene)] > GenomicRanges::end(trs_cnn_gr), cnr_gene$end[nrow(cnr_gene)], GenomicRanges::end(trs_cnn_gr))
+  
+    graph <- ggplot() +
+      theme(panel.background = element_rect(fill = "white", colour = "black"), panel.grid.minor.y = element_line(linewidth = 0.2, colour = "#aaaaaa", linetype = "dashed"),
           panel.grid.major.y = element_line(linewidth = 0.1, colour = "grey50", linetype = "dashed"), panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank()) +
-    geom_segment(data = cnr_gene, aes(x = start / 1000000, xend = end / 1000000 , y = log2, yend = log2), lineend = "round", color = "#616a6b", size=1.5) +
-    ggtitle(paste0(cnr_gene$seqnames[1], ": ", gene, " gene")) + xlab("Position (Mb)") + #ylim(-4,2) +
-    theme(plot.title = element_text(hjust = 0.5, size = 22)) +
-    geom_hline(yintercept = 0, linewidth = 1.08 ) +  #set black line at y=0
-    coord_cartesian(xlim = c(cnr_gene$start[1] / 1000000, cnr_gene$start[nrow(cnr_gene)] / 1000000)) +
-    geom_segment(aes(x = cns_gene$start / 1000000, xend = cns_gene$end / 1000000, y=cns_gene$log2, yend=cns_gene$log2), lineend = "round"  ,color = log2_line_col, linewidth = 1.25) +
-    theme(axis.text.x = element_text(size = 12), axis.text.y = element_text(size = 11), axis.title = element_text(size = 14)) 
+      geom_segment(data = cnr_gene, aes(x = start / 1000000, xend = end / 1000000 , y = log2, yend = log2), lineend = "round", color = "#616a6b", size=1.5) +
+      ggtitle(paste0(cnr_gene$seqnames[1], ": ", gene, " gene")) + xlab("Position (Mb)") + #ylim(-4,2) +
+      theme(plot.title = element_text(hjust = 0.5, size = 22)) +
+      geom_hline(yintercept = 0, linewidth = 1.08 ) +  #set black line at y=0
+      coord_cartesian(xlim = c(graph_start / 1000000, graph_end / 1000000)) +
+      geom_segment(aes(x = cns_gene$start / 1000000, xend = cns_gene$end / 1000000, y=cns_gene$log2, yend=cns_gene$log2), lineend = "round"  ,color = log2_line_col, linewidth = 1.25) +
+      theme(axis.text.x = element_text(size = 12), axis.text.y = element_text(size = 11), axis.title = element_text(size = 14)) 
   
   if (!gene_structure) {
     graph <- graph + scale_y_continuous(limits = c(-2.5,2.5), expand = c(0.01, 0.01))
@@ -125,9 +129,9 @@ plot_single_gene <- function(cnr_data, cns_data, gene = "TP53", all.transcripts 
     graph <- graph + geom_segment(aes(x = arrow_start / 1000000, xend = arrow_end / 1000000, y = -3.5, yend = -3.5), color = "#3b7fc6", linewidth = 0.5, arrow = arrow(length = unit(0.1, "inches"))) +
       geom_segment(aes(x = trs_start / 1000000, xend = trs_end / 1000000, y = -3.5, yend = -3.5), color = "#3b7fc6", linewidth = 0.5) +
       geom_rect(data = wide_gene_exons, aes(xmin = start / 1000000, xmax =end/ 1000000, ymin = -3.7, ymax = -3.30), fill = "#1c2898") +
-      geom_segment(data = narrow_gene_exons, aes(x = exon_center / 1000000, xend = exon_center / 1000000, y = -3.7, yend = -3.30), color = "#1c2898") +
+      geom_segment(data = narrow_gene_exons, aes(x = exon_center / 1000000, xend = exon_center / 1000000, y = -3.7, yend = -3.3), color = "#1c2898") +
       scale_y_continuous(limits = c(-4,2.5), expand = c(0.01, 0.01))
-        
+   
   }} else {
     gene_id <- names(all_genes[all_genes$symbol == gene ])
     all_exons_gene <- all_exons[all_exons$gene_id == gene_id]
@@ -154,7 +158,7 @@ plot_single_gene <- function(cnr_data, cns_data, gene = "TP53", all.transcripts 
     }
     
     graph <- ggplot() +
-    theme(panel.background = element_rect(fill = "white", colour = "grey50"), panel.grid.minor.y = element_blank(),
+    theme(panel.background = element_rect(fill = "white", colour = "black"), panel.grid.minor.y = element_blank(),
           panel.grid.major.y = element_line(linewidth = 0.1, colour = "grey50", linetype = "dashed"), panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank()) +
     geom_segment(data = cnr_data_trascr, aes(x = start / 1000000, xend = end / 1000000 , y = log2, yend = log2), lineend = "round", color = "#616a6b", size=1.5) +
     ggtitle(paste0(cnr_data_trascr$seqnames[1], ": ", gene, " gene")) + xlab("Position (Mb)") + #ylim(-4,2) +
@@ -253,7 +257,7 @@ plot_single_gene <- function(cnr_data, cns_data, gene = "TP53", all.transcripts 
   
   
    
-  if (regulatory.elements){
+  if (regulatory.elements & all.transcripts){
     reg_elements_chr <- regulatory_elements %>% plyranges::filter_by_overlaps(as(paste0(paste0("chr", gene_chr), ":", cnr_data_trascr$start[1], "-", cnr_data_trascr$end[nrow(cnr_data_trascr)]), 'GRanges'))
     reg_elements_chr <- as.data.frame(reg_elements_chr)
     #convert 0-based regulatory element data frame in 1-based
@@ -265,9 +269,22 @@ plot_single_gene <- function(cnr_data, cns_data, gene = "TP53", all.transcripts 
       scale_fill_manual(values=c("prom" = "red", "enhP" = "orange", "enhD" = "yellow", "K4m3" = "pink", "CTCF" = "blue")) 
   }
   
+  if (regulatory.elements & !all.transcripts & gene_structure){
+    reg_elements_chr <- regulatory_elements %>% plyranges::filter_by_overlaps(as(paste0(paste0("chr", gene_chr), ":", trs_start, "-", trs_end), 'GRanges'))
+    reg_elements_chr <- as.data.frame(reg_elements_chr)
+    #convert 0-based regulatory element data frame in 1-based
+    reg_elements_chr$start <- reg_elements_chr$start +1
+   
+    graph <- graph + geom_rect(data=reg_elements_chr, aes(xmin = start / 1000000, xmax = end / 1000000, ymin = -3.1, ymax = -2.7, fill = ucscLabel)) + 
+      theme(legend.position = "none") +
+      scale_fill_manual(values=c("prom" = "red", "enhP" = "orange", "enhD" = "#ffe02c", "K4m3" = "pink", "CTCF" = "#40c8f8")) +
+      scale_y_continuous(limits = c(-4, 2.5), breaks = c(2, 0, -2, -4, log2_threshold), minor_breaks = c(1, -1))
+  }
+  
   if (!is.null(log2_threshold)) {
     graph <- graph + geom_hline(yintercept = log2_threshold, linewidth = 0.25, color = "red", linetype="dashed") +
-      scale_y_continuous(limits = c(y_value_line, 2.5), expand = c(0.01, 0.01), breaks = c(2, 1, 0, -1, -2, log2_threshold))
+      scale_y_continuous(limits = c(y_value_line, 2.5), expand = c(0.01, 0.01), breaks = c(2, 1, 0, -1, -2, log2_threshold)) 
+      
   }
   
   
