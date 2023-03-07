@@ -40,15 +40,6 @@ plot_all_chr(cnr_data, cns_data, only_autosomal = TRUE, chr_text_size=5)
 
 ![](img/All_autosomes.png)
 
-&nbsp;
-
-You can also: plot all chromosomes, remove chromosome text and use a different color for the log2 average value. 
-
-```r
-plot_all_chrs(cnr_data, cns_data, chr_text_size = NULL, log2_line_col = "yellow")
-```
-
-![](img/All_chromosomes.png)
 
 &nbsp;
 
@@ -60,7 +51,7 @@ plot_single_chr(cnr_data, cns_data, chr = "chr6")
 ```
 ![](img/Chromosome_6.png)
 
-<br />
+&nbsp;
 
 You can give a list of genes which can be plotted in the graph, if located in that chromosome!
 
@@ -71,7 +62,7 @@ plot_single_chr(cnr_data, cns_data, chr = "chr6", genes = genes_list, gene_text_
 
 ![](img/Chromosome_6_genes.png)
 
-<br />
+&nbsp;
 
 You easily add a chromosome icon displaying duplicated and deleted regions.
 
@@ -81,7 +72,7 @@ plot_single_chr(cnr_data, cns_data, chr = "chr6", genes = genes_list, gene_text_
 
 ![](img/Chromosome_6_genes_icon.png)
 
-<br/><br/>
+&nbsp;
 
 ### Single gene plot
 It is possible to explore CNVs at gene level. You have to specify the name of a gene with HGNC ID. 
@@ -92,7 +83,7 @@ plot_single_gene(cnr_data, cns_data, gene = "TP53")
 ```
 ![](img/TP53.png)
 
-<br />
+&nbsp;
 
 It is possible to plot a detailed annotation in the plot. In this case the function plot both all transcripts of the gene and the regulatory elements present in that region. 
 The color of the regulatory elements follow the in UCSC browser. (red for promoter, orange for distal enhancer, yellow for proximal enhancer, pink for DNase-H3K4me3, and blue for CTCF-only) 
@@ -103,7 +94,7 @@ plot_single_gene(cnr_data, cns_data, gene = "TP53", all.transcripts = TRUE, regu
 
 ![](img/TP53_annotated.png)
 
-<br/><br/>
+&nbsp;
 
 ## Citation
 If you use this tool, please consider citing our publication.
