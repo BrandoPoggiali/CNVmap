@@ -8,7 +8,7 @@ For these reasons, the detection and study of Copy Number Alterations could play
 
 ## Installation
 
-You will need to install it via _GitHub_ using the `devtools` package. 
+You will need to install it via _GitHub_ using the `devtools` package.<br /> 
 To install `devtools`:
 
 ```r
@@ -117,6 +117,7 @@ Questions, suggestions, and bug reports are welcome and appreciated.
 - **2° mail**: poggialibrando1995@gmail.com
 
 &nbsp;
+
 ##References
-[1] Hieronymus, Haley, et al. "Tumor copy number alteration burden is a pan-cancer prognostic factor associated with recurrence and death." Elife 7 (2018): e37294.
+[1] Hieronymus, Haley, et al. "Tumor copy number alteration burden is a pan-cancer prognostic factor associated with recurrence and death." Elife 7 (2018): e37294.<br />
 [2]Talevich, Eric, et al. "CNVkit: genome-wide copy number detection and visualization from targeted DNA sequencing." PLoS computational biology 12.4 (2016): e1004873.
