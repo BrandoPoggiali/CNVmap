@@ -30,6 +30,8 @@ library(data.table)
 cnr_data <- fread("path/name.cnr", sep="\t")
 cns_data <- fread("path/name.cns", sep="\t")
 ```
+
+
 #### All chromosomes
 Plot all chromosomes except sex chromosomes. The function is time-intensive. It could take some minutes.
 
@@ -45,8 +47,6 @@ You can also: plot all chromosomes, remove chromosome text and use a different c
 plot_all_chrs(cnr_data, cns_data, chr_text_size = NULL, log2_line_col = "yellow")
 ```
 ![](img/All_chromosomes.png)
-
-
 
 
 
