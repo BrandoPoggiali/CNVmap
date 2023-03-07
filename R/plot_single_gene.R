@@ -160,11 +160,11 @@ plot_single_gene <- function(cnr_data, cns_data, gene = "TP53", all.transcripts 
     graph <- ggplot() +
     theme(panel.background = element_rect(fill = "white", colour = "black"), panel.grid.minor.y = element_blank(),
           panel.grid.major.y = element_line(linewidth = 0.1, colour = "grey50", linetype = "dashed"), panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank()) +
-    geom_segment(data = cnr_data_trascr, aes(x = start / 1000000, xend = end / 1000000 , y = log2, yend = log2), lineend = "round", color = "#616a6b", size=1.5) +
+    geom_segment(data = cnr_data_trascr, aes(x = start / 1000000, xend = end / 1000000 , y = log2, yend = log2), lineend = "round", color = "#616a6b", size=1.7) +
     ggtitle(paste0(cnr_data_trascr$seqnames[1], ": ", gene, " gene")) + xlab("Position (Mb)") + #ylim(-4,2) +
     geom_hline(yintercept = 0, linewidth = 1.08 ) +  #set black line at y=0
     coord_cartesian(xlim = c(cnr_data_trascr$start[1] / 1000000, cnr_data_trascr$end[nrow(cnr_data_trascr)] / 1000000)) +
-    geom_segment(data = cns_data_trascr, aes(x = start / 1000000, xend = end / 1000000, y = log2, yend = log2), lineend = "round", color = log2_line_col, linewidth = 1.25) +
+    geom_segment(data = cns_data_trascr, aes(x = start / 1000000, xend = end / 1000000, y = log2, yend = log2), lineend = "round", color = log2_line_col, linewidth = 1.4) +
     theme(axis.text.x = element_text(size = 12), axis.text.y = element_text(size = 11), axis.title = element_text(size = 14), plot.title = element_text(hjust = 0.5, size = 22)) +
     scale_y_continuous(limits = c(y_value, 2), expand = c(0.01, 0.01), breaks = c(2, 1, 0, -1, -2)) +
     scale_x_continuous(expand = c(0, 0))
