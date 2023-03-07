@@ -14,8 +14,8 @@ Depends:
     IRanges (>= 2.30.1),
     GenomicRanges (>= 1.48.0),
     GenomeInfoDb,
-    ggplot2
+    ggplot2,
+    plyranges
 LazyData: true
 Imports: 
-    data.table,
-    plyranges
+    data.table

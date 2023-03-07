@@ -46,6 +46,10 @@ plot_all_chrs(cnr_data, cns_data, chr_text_size = NULL, log2_line_col = "yellow"
 ```
 ![](img/All_chromosomes.png)
 
+
+
+
+
 #### Single chromosomes
 It is possible to explore CNVs at chromosomes level.
 
@@ -70,6 +74,10 @@ plot_single_chr(cnr_data, cns_data, chr = "chr6", genes = genes_list, gene_text_
 ![](img/Chromosome_6_genes_icon.png)
 
 
+
+
+
+
 #### Single gene
 It is possible to explore CNVs at gene level. You have to specify the name of a gene with HGNC ID. 
 In this case we look for TP53 gene, the function automatically plot the canonical transcript.
@@ -84,12 +92,11 @@ It is possible to plot a detailed annotation in the plot. In this case the funct
 The color of the regulatory elements follow the in UCSC browser. (red for promoter, orange for distal enhancer, yellow for proximal enhancer, pink for DNase-H3K4me3, and blue for CTCF-only) 
 
 
+```r
+plot_single_gene(cnr_data, cns_data, gene = "TP53", all.transcripts = TRUE, regulatory.elements = TRUE)
+```
+![](img/TP53_annotated.png)
 
-
-## Table of contents
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Setup](#setup)
 
 
 ## Citation
