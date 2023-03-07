@@ -1,6 +1,7 @@
 # CNVmap
  CNVmap is a tool for visualizing Copy Number Varitions (CNVs) at genome, chromosome and gene levels. The inputs of this tool are .cns and .cnr file formats obtained by the tool CNVkit (https://cnvkit.readthedocs.io/en/stable/).
 
+&nbsp;
 
 ## Installation
 
@@ -16,14 +17,16 @@ To install CNVmap and its dependencies:
 ```r
 devtools::install_github("BrandoPoggiali/CNVmap")
 ```
+&nbsp;
 
 ## Update
 To update the package, use the following command:
 ```r
 devtools::update("CNVmap")
 ```
+&nbsp;
 
-## How to use
+## Usage
 Upload .cnr and cns.file in R using the data.table library.
 
 ```r
@@ -100,6 +103,8 @@ plot_single_gene(cnr_data, cns_data, gene = "TP53", all.transcripts = TRUE, regu
 
 ## Citation
 If you use this tool, please consider citing our publication.
+
+&nbsp;
 
 ## Contact
 
