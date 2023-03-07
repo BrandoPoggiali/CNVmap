@@ -31,7 +31,6 @@ cnr_data <- fread("path/name.cnr", sep="\t")
 cns_data <- fread("path/name.cns", sep="\t")
 ```
 <br/><br/>
-
 #### All chromosomes
 Plot all chromosomes except sex chromosomes. The function is time-intensive. It could take some minutes.
 
