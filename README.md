@@ -48,7 +48,6 @@ plot_all_chrs(cnr_data, cns_data, chr_text_size = NULL, log2_line_col = "yellow"
 ![](img/All_chromosomes.png)
 
 <br/><br/>
-<br/><br/>
 
 ### Single chromosome plot
 It is possible to explore CNVs at chromosomes level.
@@ -73,7 +72,6 @@ plot_single_chr(cnr_data, cns_data, chr = "chr6", genes = genes_list, gene_text_
 ```
 ![](img/Chromosome_6_genes_icon.png)
 
-<br/><br/>
 <br/><br/>
 
 ### Single gene plot
