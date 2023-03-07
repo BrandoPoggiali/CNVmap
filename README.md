@@ -120,4 +120,5 @@ Questions, suggestions, and bug reports are welcome and appreciated.
 
 ## References
 [1] Hieronymus, Haley, et al. "Tumor copy number alteration burden is a pan-cancer prognostic factor associated with recurrence and death." Elife 7 (2018): e37294.<br />
+<br />
 [2]Talevich, Eric, et al. "CNVkit: genome-wide copy number detection and visualization from targeted DNA sequencing." PLoS computational biology 12.4 (2016): e1004873.
