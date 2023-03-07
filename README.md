@@ -30,7 +30,7 @@ library(data.table)
 cnr_data <- fread("path/name.cnr", sep="\t")
 cns_data <- fread("path/name.cns", sep="\t")
 ```
-
+<br />
 ### All chromosomes plot
 Plot all chromosomes except sex chromosomes. The function is time-intensive. It could take some minutes.
 
@@ -40,11 +40,14 @@ plot_all_chr(cnr_data, cns_data, only_autosomal = TRUE, chr_text_size=5)
 
 ![](img/All_autosomes.png)
 
+<br />
 
 You can also: plot all chromosomes, remove chromosome text and use a different color for the log2 average value. 
+
 ```r
 plot_all_chrs(cnr_data, cns_data, chr_text_size = NULL, log2_line_col = "yellow")
 ```
+
 ![](img/All_chromosomes.png)
 
 <br/><br/>
@@ -57,19 +60,25 @@ plot_single_chr(cnr_data, cns_data, chr = "chr6")
 ```
 ![](img/Chromosome_6.png)
 
+<br />
+
 You can give a list of genes which can be plotted in the graph, if located in that chromosome!
 
 ```r
 genes_list <- c("BRCA2","FLT1","NOL7", "TP53", "MYC", "NUPL1", "POMP", "HLA-A", "SOX21", "ARG1", "MYO6", "ELOVL5")
 plot_single_chr(cnr_data, cns_data, chr = "chr6", genes = genes_list, gene_text_size = 3.3)
 ```
+
 ![](img/Chromosome_6_genes.png)
+
+<br />
 
 You easily add a chromosome icon displaying duplicated and deleted regions.
 
 ```r
 plot_single_chr(cnr_data, cns_data, chr = "chr6", genes = genes_list, gene_text_size = 3.3, chr_picture = TRUE)
 ```
+
 ![](img/Chromosome_6_genes_icon.png)
 
 <br/><br/>
@@ -83,14 +92,15 @@ plot_single_gene(cnr_data, cns_data, gene = "TP53")
 ```
 ![](img/TP53.png)
 
+<br />
 
 It is possible to plot a detailed annotation in the plot. In this case the function plot both all transcripts of the gene and the regulatory elements present in that region. 
 The color of the regulatory elements follow the in UCSC browser. (red for promoter, orange for distal enhancer, yellow for proximal enhancer, pink for DNase-H3K4me3, and blue for CTCF-only) 
 
-
 ```r
 plot_single_gene(cnr_data, cns_data, gene = "TP53", all.transcripts = TRUE, regulatory.elements = TRUE)
 ```
+
 ![](img/TP53_annotated.png)
 
 <br/><br/>
