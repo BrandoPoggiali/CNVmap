@@ -4,7 +4,9 @@
 
 ## Installation
 
-You will need to install it via _GitHub_ using the `devtools` package. To install `devtools`:
+You will need to install it via _GitHub_ using the `devtools` package. 
+To install `devtools`:
+
 ```r
 install.packages("devtools")
 library(devtools)
