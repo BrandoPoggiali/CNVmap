@@ -139,7 +139,7 @@ plot_all_chrs <- function(cnr_data, cns_data, only_autosomal = FALSE, chr_text_s
   options(warn=-1)
   print(graph)
   options(warn=0)
-  Sys.sleep(10)
+  Sys.sleep(1)
   setTxtProgressBar(pb, 28)
   close(pb)
   

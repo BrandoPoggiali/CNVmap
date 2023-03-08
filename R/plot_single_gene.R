@@ -282,8 +282,9 @@ plot_single_gene <- function(cnr_data, cns_data, gene = "TP53", all.transcripts 
   }
   
   if (!is.null(log2_threshold)) {
+    if (!exists("y_value_line")) y_value_line <- -4
     graph <- graph + geom_hline(yintercept = log2_threshold, linewidth = 0.25, color = "red", linetype="dashed") +
-      scale_y_continuous(limits = c(y_value_line, 2.5), expand = c(0.01, 0.01), breaks = c(2, 1, 0, -1, -2, log2_threshold)) 
+      scale_y_continuous(limits = c(y_value_line, 2.5), expand = c(0.01, 0.01), breaks = c(2, 1, 0, -1, -2, log2_threshold), minor_breaks = NULL) 
       
   }
   

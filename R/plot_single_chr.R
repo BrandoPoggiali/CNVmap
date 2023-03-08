@@ -69,17 +69,25 @@ plot_single_chr <- function(cnr_data, cns_data, chr = "chr9", chr_picture = FALS
     theme(plot.title = element_text(hjust = 0.5, size = 22), axis.text.x = element_text(size = 12), axis.text.y = element_text(size = 11), axis.title = element_text(size = 15), legend.position = "none")
 
   options(warn = -1)
-  if (!is.null(log2_threshold)) {
-    graph <- graph + geom_hline(yintercept = log2_threshold, linewidth = 0.35, color = "red", linetype="dashed") +
+  if (!is.null(log2_threshold) & is.null(genes)) {
+    graph <- graph + geom_hline(yintercept = log2_threshold, linewidth = 0.35, color = log2_threshold_color, linetype="dashed") +
+      scale_y_continuous(limits = c(-3, 3), breaks = c(2, 0, -2, log2_threshold), minor_breaks = c(3, 1, -1, -3)) 
+  }
+  
+  if (!is.null(log2_threshold) & !is.null(genes)) {
+    graph <- graph + geom_hline(yintercept = log2_threshold, linewidth = 0.35, color = log2_threshold_color, linetype="dashed") +
       scale_y_continuous(limits = c(-5, 2), breaks = c(2, 0, -2, -4, log2_threshold), minor_breaks = c(1, -1, -3, -5)) 
   }
+  
+  
+  
   options(warn = 0)
   
   if (!is.null(genes)) {
     target_gene_info <- subset(all_genes[seqnames(all_genes) == gsub("chr", "", chr)], symbol %in% genes)
     
     if (length(target_gene_info) == 0) {
-      warning(paste("No supplied gene/s were found in the chromosome", gsub("chr", "", chr)), call. = FALSE)
+      warning(paste("No supplied gene/s were found in chromosome", gsub("chr", "", chr)), call. = FALSE)
       } else {
     a <- seq(1.4, 3, by = 0.20)
     b <- seq(3.2, 5, by = 0.20)
