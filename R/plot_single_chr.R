@@ -11,13 +11,13 @@
 #' @param chr Chromosome the function should plot The accepted codes are:
 #' "chr1","chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11",
 #' "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21",
-#' "chr22", "chrX", "chrY". Default: "chr1"
-#' @param chr_picture  Plot a cromosome icon colored base on log2 values. Default: FALSE
-#' @param genes  A string with a gene or a vector containing gene names (HGNC ID). Default: NULL 
-#' @param log2_line_col Color for the average log2 line. Default: "deepskyblue"
-#' @param log2_threshold Numeric value to create a threshold line in the plot. Defaul: NULL 
-#' @param log2_threshold_color Color for the log_threshold line. Default: "red"
-#' @param gene_text_size Text size for genes annotation in the plot. Default = 2.80
+#' "chr22", "chrX", "chrY". Default: "chr1".
+#' @param chr_picture  Plot a cromosome icon colored base on log2 values. Default: FALSE.
+#' @param genes  A string with a gene or a vector containing gene names (HGNC ID). Default: NULL.
+#' @param log2_line_col Color for the average log2 line. Default: "deepskyblue".
+#' @param log2_threshold Numeric value to create a threshold line in the plot. Defaul: NULL.
+#' @param log2_threshold_color Color for the log_threshold line. Default: "red".
+#' @param gene_text_size Text size for genes annotation in the plot. Default = 2.80.
 #' @return A ggplot graph. 
 #' @export
 plot_single_chr <- function(cnr_data, cns_data, chr = "chr9", chr_picture = FALSE, genes = NULL, log2_line_col = "deepskyblue",

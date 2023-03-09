@@ -1,6 +1,6 @@
 Package: CNVmap
 Title: An R-package to visualize Copy Number Variations (CNVs)
-Version: 1.0.0
+Version: 0.0.1
 Authors@R: person("Brando", "Poggiali", email= "poggialibrando1995@gmail.com", role = c("aut", "cre"))
 Description: 'CNVmap' is a tool for visualizing Copy Number Varitions (CNVs) at genome, chromosome and gene levels.
              It can be use to inspect CNVs and create pubblication-quality figures. The inputs of this tool are .cns and .cnr file
@@ -10,12 +10,12 @@ Encoding: UTF-8
 RoxygenNote: 7.2.3
 Depends:
     R (>= 2.10),
-    BiocGenerics,
-    IRanges (>= 2.30.1),
-    GenomicRanges (>= 1.48.0),
-    GenomeInfoDb,
-    ggplot2,
-    plyranges
+    ggplot2
 LazyData: true
 Imports: 
-    data.table
+    BiocGenerics,
+    data.table,
+    GenomicRanges (>= 1.48.0),
+    GenomeInfoDb,
+    IRanges (>= 2.30.1),
+    plyranges

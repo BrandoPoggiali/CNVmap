@@ -9,14 +9,14 @@
 #'
 #' @param cnr_data Dataframe containing .cnr file originated from the tool CNVkit.
 #' @param cns_data Dataframe containing .cns file originated from the tool CNVkit.
-#' @param genes  A string with a gene name (HGNC ID). Default: "TP53"
-#' @param all.transcripts Boolean value for make the plot showing all transcripts of the target gene. Default = FALSE 
-#' @param gene_structure Boolean value for make the plot showing canonical transcript of the target gene. Default = TRUE 
-#' @param regulatory.elements Boolean value for make the plot displaying regulatory elements from ... Default: FALSE
-#' @param log2_line_col Color for the average log2 line. Default: "deepskyblue"
-#' @param log2_threshold Numeric value to create a threshold line in the plot. Defaul: NULL
-#' @param log2_threshold_color Color for the log_threshold line. Default: "red"
-#' @return A matrix of the infile
+#' @param genes  A string with a gene name (HGNC ID). Default: "TP53".
+#' @param all.transcripts Boolean value for make the plot showing all transcripts of the target gene. Default = FALSE.
+#' @param gene_structure Boolean value for make the plot showing canonical transcript of the target gene. Default = TRUE.
+#' @param regulatory.elements Boolean value for make the plot displaying regulatory elements download from UCSC browser.  Default: FALSE.
+#' @param log2_line_col Color for the average log2 line. Default: "deepskyblue".
+#' @param log2_threshold Numeric value to create a threshold line in the plot. Defaul: NULL.
+#' @param log2_threshold_color Color for the log_threshold line. Default: "red".
+#' @return A matrix of the infile.
 #' @export
 gene = "ARHGEF10"
 gene = "PTPRD"

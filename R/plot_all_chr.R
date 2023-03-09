@@ -4,12 +4,12 @@
 #'
 #' @param cnr_data Dataframe containing .cnr file originated from the tool CNVkit.
 #' @param cns_data Dataframe containing .cns file originated from the tool CNVkit.
-#' @param only_autosomal Parameter to plot only autosomal chromosomes. Default: FALSE
-#' @param chr_text_size  Size of the chromosome number text displayed at the top of the plot. Default: 4
-#' If you don't want any text set chr_text_size = NULL
+#' @param only_autosomal Parameter to plot only autosomal chromosomes. Default: FALSE.
+#' @param chr_text_size  Size of the chromosome number text displayed at the top of the plot. Default: 4.
+#' If you don't want any text set chr_text_size = NULL.
 #' @param chr_colors A vector of colors. Colors will be used om the plot  base on their order in the vector. I you plot only autosomes you must input 22 colors,
-#' if you plot also sex chromosomes you must input 24 colors. Default: NULL
-#' @param log2_line_col Color for the average log2 line. Default: "red"
+#' if you plot also sex chromosomes you must input 24 colors. Default: NULL.
+#' @param log2_line_col Color for the average log2 line. Default: "red".
 #' @return A ggplot graph.
 #' @export
 plot_all_chrs <- function(cnr_data, cns_data, only_autosomal = FALSE, chr_text_size = 4, chr_colors = NULL, log2_line_col = "red"){
