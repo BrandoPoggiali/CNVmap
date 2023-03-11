@@ -1,7 +1,7 @@
 # CNVmap
  CNVmap is a tool for visualizing Copy Number Variations (CNVs) at genome, chromosome and gene levels. The inputs of this tool are .cns and .cnr file formats obtained from the tool CNVkit (https://cnvkit.readthedocs.io/en/stable/).
  
-CNVs, also called Copy Number Alterations (CNAs) are a subtype od Structural Variants (SVs). Althought their definition is not clearly defined, they are portions of the genome that can either be lost (deletions) or duplicated (amplifications).<br />
+CNVs, also called Copy Number Alterations (CNAs) are a subtype of Structural Variants (SVs). Althought their definition is not clearly determined, they are portions of the genome that can either be lost (deletions) or duplicated (amplifications).<br />
 CNVs are a source of genetic variability, however they are also involve in development of some diseases. In particular, Somatic Copy Number Alterations contribute to cancer initiation, progression and therapeutic resistance. For example, the level of copy number alteration (CNA) is associated with recurrence of primary prostate cancer or with disease-free and overall survival in primary breast, endometrial, renal clear cell, thyroid, and colorectal cancer [1]. For these reasons, the detection and study of Copy Number Alterations could play a key role in the treatment of several tumors. **CNVkit** is a software which detect Copy Number Variants and Alterations genome wide [2]. In order to inspect CNA at different genomic levels and produce publication-graphic figures we developed the R-package **CNVmap**. 
 
 &nbsp;
