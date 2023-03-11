@@ -15,22 +15,22 @@ gene
 
 \item{cns_data}{Dataframe containing .cns file originated from the tool CNVkit.}
 
-\item{genes}{A string with a gene name (HGNC ID). Default: "TP53"}
+\item{genes}{A string with a gene name (HGNC ID). Default: "TP53".}
 
-\item{all.transcripts}{Boolean value for make the plot showing all transcripts of the target gene. Default = FALSE}
+\item{all.transcripts}{Boolean value for make the plot showing all transcripts of the target gene. Default = FALSE.}
 
-\item{gene_structure}{Boolean value for make the plot showing canonical transcript of the target gene. Default = TRUE}
+\item{gene_structure}{Boolean value for make the plot showing canonical transcript of the target gene. Default = TRUE.}
 
-\item{regulatory.elements}{Boolean value for make the plot displaying regulatory elements from ... Default: FALSE}
+\item{regulatory.elements}{Boolean value for make the plot displaying regulatory elements download from UCSC browser.  Default: FALSE.}
 
-\item{log2_line_col}{Color for the average log2 line. Default: "deepskyblue"}
+\item{log2_line_col}{Color for the average log2 line. Default: "deepskyblue".}
 
-\item{log2_threshold}{Numeric value to create a threshold line in the plot. Defaul: NULL}
+\item{log2_threshold}{Numeric value to create a threshold line in the plot. Defaul: NULL.}
 
-\item{log2_threshold_color}{Color for the log_threshold line. Default: "red"}
+\item{log2_threshold_color}{Color for the log_threshold line. Default: "red".}
 }
 \value{
-A matrix of the infile
+A matrix of the infile.
 }
 \description{
 This function create a plot displaying log2 values in a specific chromosome. You can give 

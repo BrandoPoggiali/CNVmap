@@ -18,15 +18,15 @@ plot_all_chrs(
 
 \item{cns_data}{Dataframe containing .cns file originated from the tool CNVkit.}
 
-\item{only_autosomal}{Parameter to plot only autosomal chromosomes. Default: FALSE}
+\item{only_autosomal}{Parameter to plot only autosomal chromosomes. Default: FALSE.}
 
-\item{chr_text_size}{Size of the chromosome number text displayed at the top of the plot. Default: 4
-If you don't want any text set chr_text_size = NULL}
+\item{chr_text_size}{Size of the chromosome number text displayed at the top of the plot. Default: 4.
+If you don't want any text set chr_text_size = NULL.}
 
 \item{chr_colors}{A vector of colors. Colors will be used om the plot  base on their order in the vector. I you plot only autosomes you must input 22 colors,
-if you plot also sex chromosomes you must input 24 colors. Default: NULL}
+if you plot also sex chromosomes you must input 24 colors. Default: NULL.}
 
-\item{log2_line_col}{Color for the average log2 line. Default: "red"}
+\item{log2_line_col}{Color for the average log2 line. Default: "red".}
 }
 \value{
 A ggplot graph.
