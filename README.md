@@ -104,7 +104,7 @@ plot_single_gene(cnr_data, cns_data, gene = "TP53", all.transcripts = TRUE, regu
 &nbsp;
 
 ## Citation 
-If you use this tool, please consider citing our publication.
+If you use this tool, please consider citing our publication. <br />
 B. Poggiali *et al*(2023). Multiomic analysis of HER2-enriched and AR-positive breast carcinoma with apocrine differentiation and an oligometastatic course: a case report. *Frontiers in Oncology*.
 
 &nbsp;
